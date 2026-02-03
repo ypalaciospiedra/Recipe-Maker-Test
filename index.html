@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pantry Recipe Generator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Pantry Recipe Generator</h1>
+      <p class="subtitle">
+        Enter what you have on hand (ingredients + seasonings). Get a recipe instantly — no API keys, no accounts.
+      </p>
+    </header>
+
+    <main class="container grid">
+      <section class="card">
+        <h2>Your ingredients</h2>
+
+        <div class="field">
+          <label for="ingredientsInput">Ingredients you have (comma-separated)</label>
+          <textarea id="ingredientsInput" rows="4" placeholder="chicken breast, rice, onions, bell pepper"></textarea>
+          <div class="hint">The more specific, the better (e.g., “chicken breast” vs “chicken”).</div>
+        </div>
+
+        <div class="field">
+          <label for="pantryInput">Seasonings / pantry items you have (comma-separated)</label>
+          <textarea id="pantryInput" rows="4" placeholder="salt, pepper, garlic powder, cumin, paprika, olive oil"></textarea>
+          <div class="hint">Include oils, sauces, spices, broths, etc.</div>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label for="servingsInput">Servings</label>
+            <input id="servingsInput" type="number" min="1" value="2" />
+          </div>
+          <div class="field">
+            <label for="timeInput">Max time (minutes)</label>
+            <input id="timeInput" type="number" min="5" value="30" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="dietInput">Dietary notes (optional)</label>
+          <input id="dietInput" type="text" placeholder="e.g., high protein, dairy-free, low carb" />
+          <div class="hint">We’ll adapt style + suggestions (best-effort).</div>
+        </div>
+
+        <button id="generateBtn" class="primary">Generate recipe</button>
+
+        <div class="mini">
+          <div class="miniTitle">Adjust recipe</div>
+          <div class="row">
+            <button id="regenBtn">Regenerate</button>
+            <button id="makeCheaperBtn">Make cheaper</button>
+            <button id="makeHealthierBtn">Make healthier</button>
+            <button id="aiImproveBtn">AI: Improve recipe</button>
+          </div>
+          <div class="hint">
+            These keep your same inputs but change the recipe style.
+          </div>
+        </div>
+
+        <div id="status" class="status"></div>
+      </section>
+
+      <section class="card">
+        <h2>Generated recipe</h2>
+
+        <div class="field">
+          <label>Recipe</label>
+          <textarea id="output" rows="20" placeholder="Your recipe will appear here..." readonly></textarea>
+        </div>
+
+        <div class="hint">
+          Note: This version is a smart template-based generator (no AI, no APIs). Great for school demos where keys aren’t allowed.
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
